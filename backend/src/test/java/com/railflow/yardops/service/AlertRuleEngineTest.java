@@ -1,0 +1,3 @@
+package com.railflow.yardops.service;
+import com.railflow.yardops.domain.*; import org.junit.jupiter.api.Test; import java.time.*; import java.time.temporal.ChronoUnit; import static org.junit.jupiter.api.Assertions.*;
+class AlertRuleEngineTest { @Test void flagsUnknownCar(){var result=new AlertRuleEngine().evaluate(new ScanEvent("UNKNOWN","NPT","ARRIVAL",Instant.now()),null); assertEquals("MISSED_SCAN",result.getType());} @Test void flagsExcessiveDwell(){var car=new Railcar("BNSF-1","Boxcar",100,"NPT","Paper",RailcarStatus.IN_YARD); var result=new AlertRuleEngine().evaluate(new ScanEvent("BNSF-1","NPT","ARRIVAL",Instant.now().minus(25,ChronoUnit.HOURS)),car); assertEquals(AlertSeverity.WARNING,result.getSeverity());} }

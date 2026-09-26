@@ -1,0 +1,1 @@
+package com.railflow.yardops.repository; import com.railflow.yardops.domain.Train; import org.springframework.data.jpa.repository.JpaRepository; import java.util.UUID; public interface TrainRepository extends JpaRepository<Train,UUID>{}

@@ -1,0 +1,6 @@
+package com.railflow.yardops.service;
+import com.railflow.yardops.domain.*; import org.springframework.stereotype.Service; import java.time.*;
+@Service public class AlertRuleEngine {
+ public OperationalAlert evaluate(ScanEvent event, Railcar car) { if (car == null) return new OperationalAlert("MISSED_SCAN","Railcar scan references an unknown asset",event.getCarNumber(),AlertSeverity.WARNING); Duration age=Duration.between(event.getOccurredAt(),Instant.now()); if(age.toHours()>24) return new OperationalAlert("EXCESSIVE_DWELL","Railcar has exceeded the 24 hour dwell threshold",car.getCarNumber(),AlertSeverity.WARNING); if("INTERCHANGE".equalsIgnoreCase(event.getEventType()) && "HIGH".equalsIgnoreCase(car.getCommodity())) return new OperationalAlert("BLOCKED_SHIPMENT","High-priority freight is waiting at interchange",car.getCarNumber(),AlertSeverity.CRITICAL); return null; }
+ public OperationalAlert evaluate(RouteSegment segment) { if(segment.getActualArrival()==null && segment.getScheduledArrival().isBefore(Instant.now())) return new OperationalAlert("DELAYED_SEGMENT","Train segment is behind its scheduled arrival",segment.getTrainNumber(),AlertSeverity.WARNING); return null; }
+}

@@ -1,0 +1,1 @@
+package com.railflow.yardops.repository; import com.railflow.yardops.domain.*; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface ShipmentRepository extends JpaRepository<Shipment,UUID>{Optional<Shipment> findByReference(String reference); List<Shipment> findByStatus(ShipmentStatus status);}

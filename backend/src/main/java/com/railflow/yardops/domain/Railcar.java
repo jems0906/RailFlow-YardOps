@@ -1,0 +1,7 @@
+package com.railflow.yardops.domain;
+import jakarta.persistence.*; import java.time.Instant; import java.util.UUID;
+@Entity @Table(name="railcars") public class Railcar {
+ @Id @GeneratedValue(strategy=GenerationType.UUID) private UUID id; @Column(unique=true) private String carNumber; private String type; private Integer capacity; private String location; private String commodity; private Instant lastScanAt;
+ @Enumerated(EnumType.STRING) private RailcarStatus status=RailcarStatus.AVAILABLE; protected Railcar(){} public Railcar(String carNumber,String type,Integer capacity,String location,String commodity,RailcarStatus status){this.carNumber=carNumber;this.type=type;this.capacity=capacity;this.location=location;this.commodity=commodity;this.status=status;this.lastScanAt=Instant.now();}
+ public UUID getId(){return id;} public String getCarNumber(){return carNumber;} public String getType(){return type;} public Integer getCapacity(){return capacity;} public String getLocation(){return location;} public String getCommodity(){return commodity;} public RailcarStatus getStatus(){return status;} public Instant getLastScanAt(){return lastScanAt;} public void updateLocation(String location){this.location=location;this.lastScanAt=Instant.now();this.status=RailcarStatus.IN_YARD;}
+}

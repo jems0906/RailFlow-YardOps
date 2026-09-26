@@ -1,0 +1,3 @@
+package com.railflow.yardops.util;
+import com.railflow.yardops.domain.*;
+public final class RailcarBuilder { private String number="BNSF-TEST"; private String location="NPT"; public RailcarBuilder withNumber(String value){number=value;return this;} public RailcarBuilder at(String value){location=value;return this;} public Railcar build(){return new Railcar(number,"Boxcar",2860,location,"Paper",RailcarStatus.IN_YARD);} }

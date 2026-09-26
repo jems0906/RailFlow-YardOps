@@ -1,0 +1,3 @@
+package com.railflow.yardops.domain;
+import org.junit.jupiter.api.Test; import static org.junit.jupiter.api.Assertions.*;
+class ShipmentTest { @Test void startsInCreatedState(){assertEquals(ShipmentStatus.CREATED,new Shipment("RF-1","A","B","Grain","Customer","HIGH").getStatus());} @Test void statusCanAdvance(){Shipment shipment=new Shipment("RF-1","A","B","Grain","Customer","HIGH"); shipment.setStatus(ShipmentStatus.IN_TRANSIT); assertEquals(ShipmentStatus.IN_TRANSIT,shipment.getStatus());} }

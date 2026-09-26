@@ -1,0 +1,1 @@
+package com.railflow.yardops.repository; import com.railflow.yardops.domain.Railcar; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface RailcarRepository extends JpaRepository<Railcar,UUID>{Optional<Railcar> findByCarNumber(String carNumber);}

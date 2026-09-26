@@ -1,0 +1,3 @@
+package com.railflow.yardops.config;
+import com.railflow.yardops.domain.*; import com.railflow.yardops.repository.AlertRepository; import io.micrometer.core.instrument.MeterRegistry; import org.springframework.context.annotation.*;
+@Configuration public class MetricsConfig { public MetricsConfig(MeterRegistry registry,AlertRepository alerts){registry.config().commonTags("application","railflow-yardops");registry.gauge("railflow.alerts.unresolved",alerts,repo->repo.countByStatus(AlertStatus.OPEN));} }

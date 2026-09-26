@@ -1,0 +1,1 @@
+package com.railflow.yardops.repository; import com.railflow.yardops.domain.Yard; import org.springframework.data.jpa.repository.JpaRepository; import java.util.*; public interface YardRepository extends JpaRepository<Yard,UUID>{Optional<Yard> findByCode(String code);}

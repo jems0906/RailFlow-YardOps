@@ -1,0 +1,3 @@
+package com.railflow.yardops.config;
+import io.swagger.v3.oas.models.OpenAPI; import io.swagger.v3.oas.models.info.Info; import org.springframework.context.annotation.*;
+@Configuration public class OpenApiConfig { @Bean OpenAPI railflowOpenApi(){return new OpenAPI().info(new Info().title("RailFlow YardOps API").version("1.0.0").description("Freight rail operations, asset tracking, event ingestion, and alerting API."));} }

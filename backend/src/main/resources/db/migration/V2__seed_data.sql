@@ -1,0 +1,3 @@
+INSERT INTO yards (id,code,name,city,track_capacity,occupied_tracks) VALUES ('00000000-0000-0000-0000-000000000001','NPT','North Platte Hub','North Platte, NE',42,31);
+INSERT INTO yards (id,code,name,city,track_capacity,occupied_tracks) VALUES ('00000000-0000-0000-0000-000000000002','KCM','Kansas City Terminal','Kansas City, KS',28,20);
+INSERT INTO operational_alerts (id,type,message,entity_reference,severity,status,created_at) VALUES ('00000000-0000-0000-0000-000000000003','EXCESSIVE_DWELL','BNSF-48219 has been in North Platte for 31 hours','BNSF-48219','WARNING','OPEN',CURRENT_TIMESTAMP);

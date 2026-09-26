@@ -1,0 +1,7 @@
+spring:
+  config.activate.on-profile: prod
+  jpa.hibernate.ddl-auto: validate
+  h2.console.enabled: false
+  flyway.enabled: true
+management:
+  endpoint.health.show-details: never

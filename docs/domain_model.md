@@ -1,0 +1,3 @@
+# Domain model
+
+`Shipment` owns customer-facing freight state and assigned railcar identifiers. `Railcar` represents an individual asset and its latest AEI location. `Train` represents scheduled service, while `RouteSegment` models one yard-to-yard leg. `ScanEvent` is the immutable operational input. `OperationalAlert` is the actionable exception with severity and open, acknowledged, or resolved lifecycle.
