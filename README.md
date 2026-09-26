@@ -23,4 +23,4 @@ The API defaults to `http://localhost:8080`; the UI defaults to `http://localhos
 
 ## Deployment
 
-`railway.json` defines backend and frontend services. Add a Railway PostgreSQL service and map its connection values to the three `SPRING_DATASOURCE_*` variables. The CI workflow runs Maven tests and the frontend production build on every push and pull request.
+`railway.json` defines one Railway application service. The root Dockerfile builds the React client and packages it inside Spring Boot, so the deployed application is served from one container and one public origin. Add a Railway PostgreSQL service and map its connection values to the three `SPRING_DATASOURCE_*` variables. The CI workflow runs Maven tests and the frontend production build on every push and pull request.
